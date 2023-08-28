@@ -1,12 +1,13 @@
-﻿using PasswordChecker.Model.Rules;
+﻿using PasswordChecker.Model.Interfaces;
+using PasswordChecker.Model.Rules;
 
 namespace PasswordChecker.Model;
 
-public class RulesChecker
+public class RulesChecker : IRulesChecker
 {
-    private readonly RuleBase[] _rules;
+    private readonly List<RuleBase> _rules;
 
-    public RulesChecker(RuleBase[] rules)
+    public RulesChecker(List<RuleBase> rules)
     {
         _rules = rules;
     }
@@ -16,7 +17,6 @@ public class RulesChecker
         foreach (var rule in _rules)
         {
             var ruleResult = rule.Check(password);
-
             if (!ruleResult.IsValid)
             {
                 return ruleResult;

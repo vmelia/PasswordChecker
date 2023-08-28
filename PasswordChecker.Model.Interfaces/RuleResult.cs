@@ -1,4 +1,4 @@
-﻿namespace PasswordChecker.Model.Rules;
+﻿namespace PasswordChecker.Model.Interfaces;
 
 public class RuleResult
 { 

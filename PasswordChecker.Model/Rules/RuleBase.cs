@@ -1,4 +1,6 @@
-﻿namespace PasswordChecker.Model.Rules;
+﻿using PasswordChecker.Model.Interfaces;
+
+namespace PasswordChecker.Model.Rules;
 
 public abstract class RuleBase
 {
