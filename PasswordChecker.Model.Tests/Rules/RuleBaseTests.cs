@@ -63,6 +63,19 @@ public class RuleBaseTests
 
         Assert.Equal(string.Empty, ruleResult.Message);
     }
+
+    [Theory]
+    [InlineData("abc", new int[] { })]
+    [InlineData("1", new[] { 1 })]
+    [InlineData("a 1 b", new[] { 1 })]
+    [InlineData("1, 2", new[] { 1, 2 })]
+    [InlineData("a 1 b 2 c", new[] { 1, 2 })]
+    public void Digits_WhenCalled_ReturnsCorrectList(string password, int[] expected)
+    {
+        var _ = _rule.Check(password);
+
+        Assert.Equal(expected, _rule.Digits);
+    }
 }
 
 internal class TestRule : RuleBase

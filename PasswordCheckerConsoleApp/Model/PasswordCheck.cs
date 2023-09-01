@@ -25,7 +25,7 @@ public class PasswordCheck : IPasswordCheck
             var ruleResult = _rulesChecker.Check(password!);
             if (ruleResult.IsValid)
             {
-                _user.WriteLine($"'{password}' is a valid password:");
+                _user.WriteLine($"Congratulations. '{password}' is a valid password:");
                 break;
             }
 

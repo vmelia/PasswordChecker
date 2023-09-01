@@ -3,17 +3,14 @@ using Xunit;
 
 namespace PasswordChecker.Model.Tests.Rules;
 
-public class TooShortRuleTests : TestBase
+public class ZodiacCheckRuleTests : TestBase
 {
-    private const int _minimum = 4;
-
-    public TooShortRuleTests() : base(new TooShortRule(_minimum)) { }
+    public ZodiacCheckRuleTests() : base(new ZodiacCheckRule()) { }
 
     [Theory]
-    [InlineData("1234")]
-    [InlineData("12345")]
-    [InlineData("123456")]
-    [InlineData("1234567")]
+    [InlineData("capricorn")]
+    [InlineData("Capricorn")]
+    [InlineData("CAPRICORN")]
     public void Check_WhenValidPassword_ReturnsTrue(string password)
     {
         CheckValidPassword(password);
@@ -21,8 +18,7 @@ public class TooShortRuleTests : TestBase
 
     [Theory]
     [InlineData("")]
-    [InlineData("1")]
-    [InlineData("12")]
+    [InlineData("xyz")]
     [InlineData("123")]
     public void Check_WhenInvalidPassword_ReturnsFalse(string password)
     {
@@ -31,11 +27,10 @@ public class TooShortRuleTests : TestBase
 
     [Theory]
     [InlineData("")]
-    [InlineData("1")]
-    [InlineData("12")]
+    [InlineData("xyz")]
     [InlineData("123")]
     public void ErrorText_WhenInvalidPassword_ReturnsCorrectText(string password)
     {
-        CheckInvalidMessage(password, $"Password must contain at least {_minimum} character(s)");
+        CheckInvalidMessage(password, "Password must contain a sign of the Zodiac");
     }
 }

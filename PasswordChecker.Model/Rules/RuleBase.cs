@@ -12,6 +12,23 @@ public abstract class RuleBase
 
     public string Password { get; private set; } = string.Empty;
 
+    public List<int> Digits
+    {
+        get
+        {
+            var digits = new List<int>();
+            foreach (var c in Password)
+            {
+                if (int.TryParse(c.ToString(), out var result))
+                {
+                    digits.Add(result);
+                }
+            }
+
+            return digits;
+        }
+    }
+
     protected abstract bool IsValid { get; }
     protected abstract string ErrorMessage { get; }
 }

@@ -11,8 +11,10 @@ var rules = new List<RuleBase>
     new UpperAndLowerCaseRule(),
     new DigitRule(),
     new SymbolRule(),
-    new DigitTotalRule(15),
+    new DigitTotalRule(9),
     new PalindromeRule(),
+    new ZodiacCheckRule(),
+    new DigitRepeatRule(2)
 };
 
 IInputOutput inputOutput = new ConsoleInputOutput();

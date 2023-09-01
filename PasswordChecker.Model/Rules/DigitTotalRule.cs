@@ -9,22 +9,7 @@ public class DigitTotalRule : RuleBase
         _total = total;
     }
 
-    protected override bool IsValid
-    {
-        get
-        {
-            var total = 0;
-            foreach (var c in Password)
-            {
-                if (int.TryParse(c.ToString(), out var result))
-                {
-                    total += result;
-                }
-            }
-
-            return total == _total;
-        }
-    }
+    protected override bool IsValid => Digits.Sum() == _total;
 
     protected override string ErrorMessage => $"Password digits must total {_total}";
 }

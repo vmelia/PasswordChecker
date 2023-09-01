@@ -59,7 +59,7 @@ public class RulesCheckerTests
     [InlineData("Rule1 Rule2")]
     [InlineData("abc Rule1 abc Rule2")]
     [InlineData("Rule2 123 Rule1 123")]
-    public void Check_WhenBothRulesAreValidReturnsSuccess(string password)
+    public void Check_WhenBothRulesAreValid_ReturnsSuccess(string password)
     {
         var ruleResult = _rulesChecker.Check(password);
 
