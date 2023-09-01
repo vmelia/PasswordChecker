@@ -32,6 +32,6 @@ public class DigitRepeatRuleTests : TestBase
     [InlineData("12121")]
     public void ErrorText_WhenInvalidPassword_ReturnsCorrectText(string password)
     {
-        CheckInvalidMessage(password, $"Password may only have {_allowed} of the same digit");
+        CheckInvalidMessage(password, $"Password may not contain the same digit more than {_allowed} times");
     }
 }

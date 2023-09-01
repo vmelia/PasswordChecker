@@ -33,5 +33,5 @@ public class DigitRepeatRule : RuleBase
         }
     }
 
-    protected override string ErrorMessage => $"Password may only have {_allowed} of the same digit";
+    protected override string ErrorMessage => $"Password may not contain the same digit more than {_allowed} times";
 }
