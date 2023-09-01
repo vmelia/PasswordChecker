@@ -16,17 +16,17 @@ public class DigitRepeatRule : RuleBase
             var digitTotals = new Dictionary<int, int>();
             foreach (var d in Digits)
             {
-                var alreadyThere = digitTotals.ContainsKey(d);
-                if (alreadyThere)
+                if (digitTotals.ContainsKey(d))
                 {
                     digitTotals[d]++;
-                    if (digitTotals[d] > _allowed)
-                        return false;
                 }
                 else
                 {
                     digitTotals[d] = 1;
                 }
+
+                if (digitTotals[d] > _allowed)
+                    return false;
             }
 
             return true;
