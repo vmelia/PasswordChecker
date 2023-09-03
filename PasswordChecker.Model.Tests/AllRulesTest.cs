@@ -1,5 +1,6 @@
 ﻿using PasswordChecker.Model.Interfaces;
 using PasswordChecker.Model.Rules;
+using PasswordChecker.Model.Rules.ContainsRules;
 using Xunit;
 
 namespace PasswordChecker.Model.Tests;
@@ -18,8 +19,9 @@ public class AllRulesTest
             new SymbolRule(),
             new DigitTotalRule(9),
             new PalindromeRule(),
-            new ZodiacCheckRule(),    
-            new DigitRepeatRule(2)
+            new ZodiacCheckRule(),
+            new DigitRepeatRule(2),
+            new TeletubbiesRule()
         };
 
         _rulesChecker = new RulesChecker(rules);
@@ -28,7 +30,7 @@ public class AllRulesTest
     [Fact]
     public void Check_WhenAllRulesPass_ReturnsTrue()
     {
-        const string password = "Leo$12321$oeL";
+        const string password = "LeoPo$12321$oPoeL";
 
         var ruleResult = _rulesChecker.Check(password);
 
