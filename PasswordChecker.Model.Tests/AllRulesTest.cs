@@ -19,7 +19,7 @@ public class AllRulesTest
             new SymbolRule(),
             new DigitTotalRule(9),
             new PalindromeRule(),
-            new ZodiacCheckRule(),
+            new ZodiacRule(),
             new DigitRepeatRule(2),
             new TeletubbiesRule()
         };

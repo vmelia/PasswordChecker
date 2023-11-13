@@ -1,6 +1,6 @@
 ﻿namespace PasswordChecker.Model.Rules.ContainsRules;
 
-public class ZodiacCheckRule : ContainsRuleBase
+public class ZodiacRule : ContainsRuleBase
 {
     protected override string ErrorMessage => "Password must contain a sign of the Zodiac";
 
